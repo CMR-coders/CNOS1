@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+void main() {
+    int noframes, i = 1, j = 1;
+    printf("Enter the number of frames: ");
+    scanf("%d", &noframes);
+    printf("\nNumber of frames is %d", noframes);
+    while(noframes > 0) {
+        printf("\nSending frame %d", i);
+        int x = rand() % 10;
+        if(x % 2 == 0) {
+           printf("\nSending frame %d", i);
+        }
+        printf("\nACK for frame %d", j);
+        noframes--;
+        i++;
+        j++;
+    }
+    printf("\nEnd of Stop and Wait protocol");
+    getch();
+}

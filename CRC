@@ -1,0 +1,29 @@
+// CRC
+#include <stdio.h>
+#include <string.h>
+int main(){
+     char i[100], k[30], r[30], q[100];
+     int kl, ml, j, qi = 0;
+     printf("Enter Data: ");
+     fgets(i, sizeof(i), stdin);
+     printf("Enter Key: ");
+     fgets(k, sizeof(k), stdin);
+     kl = strlen(k) - 1;
+     ml = strlen(i) - 1;
+     for (; ml < kl; ml++)
+          i[ml] = '0';
+     for (ml -= kl; ml >= 0; ml--){
+          for (j = kl; j > 0; j--)
+               r[j - 1] = (i[ml + j] == k[j]) ? '0' : '1';
+          r[kl - 1] = i[ml + kl];
+          if (r[0] == '1'){
+               for (j = 0; j < kl; j++)
+                    i[ml + j] = (i[ml + j] == k[j]) ? '0' : '1';
+               q[qi++] = '1';
+          }else{
+               q[qi++] = '0';
+          }
+     }
+     printf("\nQuotient is %.*s\nRemainder is %.*s\nFinal data is: %.*s%s", qi,q,kl-1,r,ml+kl,i,r);
+     return 0;
+}
